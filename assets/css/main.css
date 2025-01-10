@@ -2272,50 +2272,38 @@ section,
   color: #47b2e4; /* Example color */
 }
 
-/* Container to hold the district images */
+/* Map container and image styling */
 .map-container {
   position: relative;
   width: 100%;
-  height: 500px; /* Adjust the height of the container */
+  height: 500px; /* You can adjust this based on your design */
   overflow: hidden;
-  background-image: url('plain-map.png'); /* Optional: Use plain map as the background */
-  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Initially hide all district images */
 .district {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* Smooth transition for fade-in */
   position: absolute;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  transition-delay: 0.2s;
-  /* Optionally, set initial positions of the districts */
 }
 
-/* Highlight effect for districts */
+/* Animation for highlighting the districts */
 .highlighted {
-  opacity: 0;
-  transition: opacity 1s ease-out;
+  animation: highlightAnimation 2s ease-in-out infinite;
+  position: absolute;
 }
 
-/* When districts come into view (scroll-triggered) */
-.district.visible {
-  opacity: 1;
-}
-
-/* After all districts are visible, trigger the highlight */
-.highlighted.visible {
-  opacity: 1;
-  animation: highlightPop 1s ease-out forwards;
-}
-
-@keyframes highlightPop {
+@keyframes highlightAnimation {
   0% {
-    transform: scale(1);
+    opacity: 0;
   }
   50% {
-    transform: scale(1.05);
+    opacity: 1;
   }
   100% {
-    transform: scale(1);
+    opacity: 0;
   }
 }
