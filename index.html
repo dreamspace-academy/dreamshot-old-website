@@ -77,11 +77,11 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-      <div class="container">
+      <!-- <div class="container">
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
-            <h1>Better Solutions For Your Business</h1>
-            <p>We are team of talented designers making websites with Bootstrap</p>
+            <h1>DreamShot MakerFaire</h1>
+            <p>DreamShot MakerFaire is a 4-day event celebrating innovation and entrepreneurship, bringing together innovators, entrepreneurs, changemakers, and creative artists while bridging resources, investors, and mentors, and showcasing impactful startups, innovations, ideas, and performances focused on sustainability and tech for good.</p>
             <div class="d-flex">
               <a href="#about" class="btn-get-started">Get Started</a>
               <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
@@ -91,75 +91,92 @@
             <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
           </div>
         </div>
+      </div> -->
+      <div class="container">
+        <div class="row gy-4">
+          <!-- Left Side -->
+          <div class="col-lg-6 d-flex flex-column justify-content-between" data-aos="zoom-out">
+            <!-- Upper Div -->
+            <div>
+              <h1>DreamShot MakerFaire</h1>
+              <p>
+                DreamShot MakerFaire is a 4-day event celebrating innovation and entrepreneurship, bringing together innovators, entrepreneurs, changemakers, and creative artists while bridging resources, investors, and mentors, and showcasing impactful startups, innovations, ideas, and performances focused on sustainability and tech for good.
+              </p>
+            </div>
+            <!-- Lower Div (Countdown Timer) -->
+            <div class="countdown">
+              <!-- <h2>Countdown to Event</h2> -->
+              <div id="timer">
+                <span id="days">00</span> Days 
+                <span id="hours">00</span> Hours 
+                <span id="minutes">00</span> Minutes 
+                <span id="seconds">00</span> Seconds
+              </div>
+            </div>
+          </div>
+      
+          <!-- Right Side -->
+          <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+            <img src="assets/img/hero-img.png" class="img-fluid animated" alt="Hero Image" style="height: 400px;">
+          </div>
+        </div>
       </div>
+      
+      <!-- Add Styling -->
+      <style>
+        .countdown {
+          text-align: center;
+          margin-top: 20px;
+        }
+      
+        #timer span {
+          font-size: 1.5rem;
+          margin: 0 10px;
+          font-weight: bold;
+          color: #007bff;
+        }
+      </style>
+      
+      <!-- Add JavaScript for Countdown -->
+      <script>
+        // Set the date we're counting down to
+        const eventDate = new Date("Feb 20, 2025 09:00:00").getTime();
+      
+        // Update the countdown every 1 second
+        const timerInterval = setInterval(function () {
+          const now = new Date().getTime();
+          const timeLeft = eventDate - now;
+      
+          // Time calculations
+          const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+      
+          // Display the result
+          document.getElementById("days").innerHTML = days;
+          document.getElementById("hours").innerHTML = hours;
+          document.getElementById("minutes").innerHTML = minutes;
+          document.getElementById("seconds").innerHTML = seconds;
+      
+          // If the countdown is finished, display a message
+          if (timeLeft < 0) {
+            clearInterval(timerInterval);
+            document.getElementById("timer").innerHTML = "The event has started!";
+          }
+        }, 1000);
+      </script>
+      
 
     </section><!-- /Hero Section -->
 
-    <!-- Clients Section -->
-    <section id="clients" class="clients section light-background">
-
-      <div class="container" data-aos="zoom-in">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 40
-                },
-                "480": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 60
-                },
-                "640": {
-                  "slidesPerView": 4,
-                  "spaceBetween": 80
-                },
-                "992": {
-                  "slidesPerView": 5,
-                  "spaceBetween": 120
-                },
-                "1200": {
-                  "slidesPerView": 6,
-                  "spaceBetween": 120
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Clients Section -->
-
+  
     <!-- About Section -->
     <section id="about" class="about section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>About Us</h2>
+        <h2>Targeted Individuals</h2>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -167,21 +184,73 @@
         <div class="row gy-4">
 
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
-            <ul>
-              <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo</span></li>
-            </ul>
+            <div class="map-container">
+              <!-- District Images (Initially hidden) -->
+              <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+                <div class="map-container">
+                  <!-- District Images (Initially hidden) -->
+                  <img src="assets/img/1.png" alt="District 1" class="district" id="district1">
+                  <img src="assets/img/2.png" alt="District 2" class="district" id="district2">
+                  <img src="assets/img/3.png" alt="District 3" class="district" id="district3">
+                  <img src="assets/img/4.png" alt="District 4" class="district" id="district4">
+                  <img src="assets/img/5.png" alt="District 5" class="district" id="district5">
+                  <img src="assets/img/6.png" alt="District 6" class="district" id="district6">
+                  <img src="assets/img/7.png" alt="District 7" class="district" id="district7">
+                  <img src="assets/img/8.png" alt="District 8" class="district" id="district8">
+                  <img src="assets/img/9.png" alt="District 9" class="district" id="district9">
+                  <img src="assets/img/10.png" alt="District 10" class="district" id="district10">
+                  <img src="assets/img/11.png" alt="District 11" class="district" id="district11">
+                  <img src="assets/img/12.png" alt="District 12" class="district" id="district12">
+                  <img src="assets/img/13.png" alt="District 13" class="district" id="district13">
+                  <img src="assets/img/14.png" alt="District 14" class="district" id="district14">
+                  <img src="assets/img/15.png" alt="District 15" class="district" id="district15">
+                  <img src="assets/img/16.png" alt="District 16" class="district" id="district16">
+                  <img src="assets/img/17.png" alt="District 17" class="district" id="district17">
+                  <img src="assets/img/18.png" alt="District 18" class="district" id="district18">
+                  <img src="assets/img/19.png" alt="District 19" class="district" id="district19">
+                  <img src="assets/img/20.png" alt="District 20" class="district" id="district20">
+                  <img src="assets/img/21.png" alt="District 21" class="district" id="district21">
+                  <img src="assets/img/22.png" alt="District 22" class="district" id="district22">
+                  <img src="assets/img/23.png" alt="District 23" class="district" id="district23">
+                  <img src="assets/img/24.png" alt="District 24" class="district" id="district24">
+                  <img src="assets/img/25.png" alt="District 25" class="district" id="district25">
+                  <!-- Highlighted district images (optional) -->
+                  <img src="assets/img/highlighted1.png" alt="Highlighted District 1" class="highlighted" id="highlighted1">
+                  <img src="assets/img/highlighted2.png" alt="Highlighted District 2" class="highlighted" id="highlighted2">
+                  <!-- Add more highlighted district images as needed -->
+                </div>
+              </div>
+              
+            </div>
           </div>
+          
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-            <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-          </div>
+  <div class="district-counters">
+    <div class="counter-item">
+      <p class="counter">120</p>
+      <span class="counter-text">Trincomalee</span>
+    </div>
+    <div class="counter-item">
+      <p class="counter">800</p>
+      <span class="counter-text">Batticaloa</span>
+    </div>
+    <div class="counter-item">
+      <p class="counter">120</p>
+      <span class="counter-text">Ampara</span>
+    </div>
+    <div class="counter-item">
+      <p class="counter">50</p>
+      <span class="counter-text">Mullaitivu</span>
+    </div>
+    <div class="counter-item">
+      <p class="counter">50</p>
+      <span class="counter-text">Nuwara Eliya</span>
+    </div>
+  </div>
+</div>
+
+          
 
         </div>
 
@@ -599,71 +668,176 @@
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/man.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-                <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-                <div class="social">
+                <!-- <h4>Walter White</h4> -->
+                <!-- <span>Chief Executive Officer</span> -->
+                <p>A celebration of innovation
+                  and entrepreneurship,
+                  showcasing transformative ideas and
+                  groundbreaking ventures.</p>
+                <!-- <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
                   <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
+                </div> -->
               </div>
             </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/man.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-                <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                <div class="social">
+                <!-- <h4>Sarah Jhonson</h4> -->
+                <!-- <span>Product Manager</span> -->
+                <p>Exploring technology for
+                  good, with a special focus
+                  on AI for Social Good and
+                  peace-tech initiatives.</p>
+                <!-- <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
                   <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
+                </div> -->
               </div>
             </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/man.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-                <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                <div class="social">
+                <!-- <h4>William Anderson</h4> -->
+                <!-- <span>CTO</span> -->
+                <p>A spotlight on green tech
+                  and the circular economy,
+                  promoting sustainable
+                  solutions and eco-friendly
+                 practices.</p>
+                <!-- <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
                   <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
+                </div> -->
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
+          <!-- End Team Member -->
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
             <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/man.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                <div class="social">
+                <!-- <h4>Amanda Jepson</h4> -->
+                <!-- <span>Accountant</span> -->
+                <p>Reimagining education
+                  through hands-on
+                  learning, STEAM
+                 workshops, and future-
+                  ready skills development.</p>
+                <!-- <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
                   <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
+                </div> -->
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
+          <!-- End Team Member -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="assets/img/man.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <!-- <h4>Amanda Jepson</h4> -->
+                <!-- <span>Accountant</span> -->
+                <p>A united platform for
+                  creatives and artists,
+                  highlighting the
+                  intersection of art,
+                  technology, and business.</p>
+                <!-- <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <!-- End Team Member -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="assets/img/man.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <!-- <h4>Amanda Jepson</h4> -->
+                <!-- <span>Accountant</span> -->
+                <p>Fresh perspectives on
+                  sustainable tourism,
+                 fostering community-
+                  driven, eco-conscious
+                travel experiences.</p>
+                <!-- <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <!-- End Team Member -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="assets/img/man.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <!-- <h4>Amanda Jepson</h4> -->
+                <!-- <span>Accountant</span> -->
+                <p>A powerful platform for
+                  changemakers,
+                  connecting them with
+                  resources, investors, and
+                  mentors to bring their
+                  visions to life.</p>
+                <!-- <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <!-- End Team Member -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="assets/img/man.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <!-- <h4>Amanda Jepson</h4> -->
+                <!-- <span>Accountant</span> -->
+                <p>Inspiring the next
+                  generation of innovators
+                  to lead Sri Lanka toward a
+                  brighter, more sustainable
+                 future.</p>
+                <!-- <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <!-- End Team Member -->
 
         </div>
 
@@ -671,6 +845,37 @@
 
     </section>
     <!-- /DreamShot MakerFaire Section -->
+
+    <!-- Why DreamShot MakerFaire? Section -->
+    <div class="shot-card px-5">
+      <div class="card">
+        <div class="cim">
+           <img class="bd-placeholder-img card-img-top" width="100%" height="180" src="/assets/img/thinking.png" alt="Image cap">
+          </div>
+        <div class="card-body">
+          <p class="card-text">Lack of entrepreneurial education and STEAM exposure</p>
+        </div>
+      </div>
+  
+      <div class="card">
+        <div class="cim">
+           <img class="bd-placeholder-img card-img-top" width="100%" height="180" src="/assets/img/thinking.png" alt="Image cap">
+          </div>
+        <div class="card-body">
+          <p class="card-text">Brain drain and no aspirations for youths</p>
+        </div>
+      </div>
+  
+      <div class="card">
+        <div class="cim">
+           <img class="bd-placeholder-img card-img-top" width="100%" height="180" src="/assets/img/thinking.png" alt="Image cap">
+          </div>
+        <div class="card-body">
+          <p class="card-text">Need for community-centered solutions and ecosystem support</p>
+        </div>
+      </div>
+    </div>
+    <!-- /Why DreamShot MakerFaire? Section -->
 
     <!-- Pricing Section -->
     <section id="pricing" class="pricing section light-background">

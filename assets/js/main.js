@@ -222,3 +222,58 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+function animateCounters() {
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach(counter => {
+    const target = +counter.innerText; // Convert target value to a number
+    counter.innerText = '0'; // Start from 0
+
+    const updateCounter = () => {
+      const current = +counter.innerText; // Current value
+      const increment = target / 100; // Adjust speed by changing divisor
+
+      if (current < target) {
+        counter.innerText = `${Math.ceil(current + increment)}`;
+        setTimeout(updateCounter, 20); // Adjust speed by changing delay
+      } else {
+        counter.innerText = target; // Ensure it stops exactly at the target
+      }
+    };
+
+    updateCounter();
+  });
+}
+
+document.addEventListener('DOMContentLoaded', animateCounters);
+
+// Function to make district images visible when they come into view
+function revealDistricts() {
+  const districts = document.querySelectorAll('.district');
+  const highlights = document.querySelectorAll('.highlighted');
+
+  // Intersection Observer to detect when each district image comes into the viewport
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible'); // Make district image visible
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  // Observe each district image
+  districts.forEach(district => {
+    observer.observe(district);
+  });
+
+  // After all districts are visible, trigger the highlight
+  setTimeout(() => {
+    highlights.forEach(highlight => {
+      highlight.classList.add('visible');
+    });
+  }, 5000); // Delay highlights for 5 seconds after last district appears
+}
+
+// Call the function to reveal districts when the page is loaded
+window.onload = revealDistricts;
