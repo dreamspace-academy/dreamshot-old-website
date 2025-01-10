@@ -222,3 +222,27 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+function animateCounters() {
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach(counter => {
+    const target = +counter.innerText; // Convert target value to a number
+    counter.innerText = '0'; // Start from 0
+
+    const updateCounter = () => {
+      const current = +counter.innerText; // Current value
+      const increment = target / 100; // Adjust speed by changing divisor
+
+      if (current < target) {
+        counter.innerText = `${Math.ceil(current + increment)}`;
+        setTimeout(updateCounter, 20); // Adjust speed by changing delay
+      } else {
+        counter.innerText = target; // Ensure it stops exactly at the target
+      }
+    };
+
+    updateCounter();
+  });
+}
+
+document.addEventListener('DOMContentLoaded', animateCounters);

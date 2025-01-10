@@ -2135,3 +2135,25 @@ section,
 }
 
 /*** Service End ***/
+
+.district-counters {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  gap: 20px; /* Spacing between counters */
+  align-items: flex-start; /* Align counters to the left */
+}
+
+.counter-item {
+  text-align: left;
+}
+
+.counter {
+  font-size: 2rem; /* Adjust size as needed */
+  color: #37517e; /* Example color */
+  font-weight: bold;
+}
+
+.counter-text {
+  font-size: 1rem;
+  color: #47b2e4; /* Example color */
+}
