@@ -2132,6 +2132,7 @@ section,
     
 }
 
+
 .service .service-item:hover .service-img::before {
     height: 100%;
     background: rgba(21, 185, 217, .3);
@@ -2179,5 +2180,69 @@ section,
 .service .service-item:hover .service-content .service-content-inner h5 {
     color: var(--bs-secondary);
 }
+
+
+
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Makes all cards uniform in height */
+}
+
+.service-img {
+  flex-shrink: 0; /* Ensures the image stays at its size */
+}
+
+.service-content {
+  flex-grow: 1; /* Fills the remaining space in the card */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distributes content evenly */
+}
+
+.service-content-inner {
+  flex-grow: 1; /* Ensures text area stretches appropriately */
+}
+
+.service-content-inner p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Limits the number of lines to prevent overflow */
+  -webkit-box-orient: vertical;
+}
+
+
+
+
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensures all cards have the same height */
+}
+
+.service-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures space between text and the button */
+}
+
+.service-content-inner {
+  flex-grow: 1; /* Makes the content take up remaining space above the button */
+}
+
+.btn {
+  margin-top: auto; /* Pushes the button to the bottom of the card */
+}
+
+
+
+
+
+
+
 
 /*** Service End ***/
