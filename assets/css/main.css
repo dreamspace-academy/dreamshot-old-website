@@ -2250,38 +2250,61 @@ section,
 
 /*** Service End ***/
 
+/* Map Container */
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.map-container img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain; /* Ensure image fits without distortion */
+}
+
+/* District Counters */
 .district-counters {
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  gap: 20px; /* Spacing between counters */
-  align-items: flex-start; /* Align counters to the left */
+  flex-direction: column;
+  align-items: flex-start; /* Align text to the left */
+  gap: 20px; /* Space between rows */
 }
 
 .counter-item {
-  text-align: left;
+  display: flex;
+  align-items: center; /* Align items vertically */
+  gap: 15px; /* Space between circle and text */
 }
 
-.counter {
-  font-size: 2rem; /* Adjust size as needed */
-  color: #37517e; /* Example color */
+.circle-counter {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #37517e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.circle-counter .counter {
+  font-size: 1.5rem;
+  color: #ffffff;
   font-weight: bold;
+  margin: 0;
 }
 
 .counter-text {
   font-size: 1rem;
-  color: #47b2e4; /* Example color */
+  color: #37517e;
+  font-weight: 600;
 }
 
-/* Map container and image styling */
-.map-container {
-  position: relative;
-  width: 100%;
-  height: 500px; /* You can adjust this based on your design */
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 /* Initially hide all district images */
 .district {

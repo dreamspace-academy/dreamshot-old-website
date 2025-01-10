@@ -245,6 +245,10 @@ function animateCounters() {
   });
 }
 
+// Call the animation function after the page loads
+window.onload = animateCounters;
+
+
 document.addEventListener('DOMContentLoaded', animateCounters);
 
 // Wait for the document to load
