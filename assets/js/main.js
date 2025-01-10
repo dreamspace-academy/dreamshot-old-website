@@ -245,35 +245,39 @@ function animateCounters() {
   });
 }
 
+// Call the animation function after the page loads
+window.onload = animateCounters;
+
+
 document.addEventListener('DOMContentLoaded', animateCounters);
 
-// Function to make district images visible when they come into view
-function revealDistricts() {
+// Wait for the document to load
+document.addEventListener('DOMContentLoaded', () => {
+  // Get all the district images
   const districts = document.querySelectorAll('.district');
-  const highlights = document.querySelectorAll('.highlighted');
-
-  // Intersection Observer to detect when each district image comes into the viewport
+  
+  // Initialize the intersection observer to detect when the user scrolls into view
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
+      // When the district image comes into the viewport
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible'); // Make district image visible
-        observer.unobserve(entry.target);
+        // Fade in the image
+        entry.target.style.opacity = 1;
+        observer.unobserve(entry.target); // Stop observing after it's visible
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.5 });
 
   // Observe each district image
   districts.forEach(district => {
     observer.observe(district);
   });
 
-  // After all districts are visible, trigger the highlight
+  // Function to trigger highlight animation for highlighted districts after delay
   setTimeout(() => {
-    highlights.forEach(highlight => {
-      highlight.classList.add('visible');
+    const highlightedDistricts = document.querySelectorAll('.highlighted');
+    highlightedDistricts.forEach(district => {
+      district.style.opacity = 1;  // Start displaying highlighted districts
     });
-  }, 5000); // Delay highlights for 5 seconds after last district appears
-}
-
-// Call the function to reveal districts when the page is loaded
-window.onload = revealDistricts;
+  }, 5000); // 5 seconds delay to start highlighting
+});
