@@ -77,11 +77,11 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-      <div class="container">
+      <!-- <div class="container">
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
-            <h1>Better Solutions For Your Business</h1>
-            <p>We are team of talented designers making websites with Bootstrap</p>
+            <h1>DreamShot MakerFaire</h1>
+            <p>DreamShot MakerFaire is a 4-day event celebrating innovation and entrepreneurship, bringing together innovators, entrepreneurs, changemakers, and creative artists while bridging resources, investors, and mentors, and showcasing impactful startups, innovations, ideas, and performances focused on sustainability and tech for good.</p>
             <div class="d-flex">
               <a href="#about" class="btn-get-started">Get Started</a>
               <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
@@ -91,7 +91,82 @@
             <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
           </div>
         </div>
+      </div> -->
+      <div class="container">
+        <div class="row gy-4">
+          <!-- Left Side -->
+          <div class="col-lg-6 d-flex flex-column justify-content-between" data-aos="zoom-out">
+            <!-- Upper Div -->
+            <div>
+              <h1>DreamShot MakerFaire</h1>
+              <p>
+                DreamShot MakerFaire is a 4-day event celebrating innovation and entrepreneurship, bringing together innovators, entrepreneurs, changemakers, and creative artists while bridging resources, investors, and mentors, and showcasing impactful startups, innovations, ideas, and performances focused on sustainability and tech for good.
+              </p>
+            </div>
+            <!-- Lower Div (Countdown Timer) -->
+            <div class="countdown">
+              <h2>Countdown to Event</h2>
+              <div id="timer">
+                <span id="days">00</span> Days 
+                <span id="hours">00</span> Hours 
+                <span id="minutes">00</span> Minutes 
+                <span id="seconds">00</span> Seconds
+              </div>
+            </div>
+          </div>
+      
+          <!-- Right Side -->
+          <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+            <img src="assets/img/hero-img.png" class="img-fluid animated" alt="Hero Image">
+          </div>
+        </div>
       </div>
+      
+      <!-- Add Styling -->
+      <style>
+        .countdown {
+          text-align: center;
+          margin-top: 20px;
+        }
+      
+        #timer span {
+          font-size: 1.5rem;
+          margin: 0 10px;
+          font-weight: bold;
+          color: #007bff;
+        }
+      </style>
+      
+      <!-- Add JavaScript for Countdown -->
+      <script>
+        // Set the date we're counting down to
+        const eventDate = new Date("Feb 20, 2025 09:00:00").getTime();
+      
+        // Update the countdown every 1 second
+        const timerInterval = setInterval(function () {
+          const now = new Date().getTime();
+          const timeLeft = eventDate - now;
+      
+          // Time calculations
+          const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+      
+          // Display the result
+          document.getElementById("days").innerHTML = days;
+          document.getElementById("hours").innerHTML = hours;
+          document.getElementById("minutes").innerHTML = minutes;
+          document.getElementById("seconds").innerHTML = seconds;
+      
+          // If the countdown is finished, display a message
+          if (timeLeft < 0) {
+            clearInterval(timerInterval);
+            document.getElementById("timer").innerHTML = "The event has started!";
+          }
+        }, 1000);
+      </script>
+      
 
     </section><!-- /Hero Section -->
 
