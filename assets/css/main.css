@@ -1287,6 +1287,55 @@ section,
 }
 
 /*--------------------------------------------------------------
+# Why DreamShot MakerFaire? Section
+--------------------------------------------------------------*/
+.shot-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  max-width: 18rem;
+  flex: 1 1 calc(33.333% - 20px);
+  color: rgb(20, 5, 74);
+}
+
+.card img, .card svg {
+    max-width: 50%; /* Ensures the image fits inside the card */
+    height: auto;margin-bottom: 16px;
+}
+
+.card-body {
+  padding: 15px;
+  text-align: center;
+}
+
+.cim{
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    flex: 1 1 100%;
+  }
+}
+/*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
 .portfolio .portfolio-filters {
