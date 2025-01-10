@@ -2326,9 +2326,6 @@ section,
 
 
 /*** Service End ***/
-<<<<<<< HEAD
-=======
-
 /* Map Container */
 .map-container {
   position: relative;
@@ -2384,7 +2381,6 @@ section,
   font-weight: 600;
 }
 
-
 /* Initially hide all district images */
 .district {
   opacity: 0;
@@ -2409,4 +2405,3 @@ section,
     opacity: 0;
   }
 }
->>>>>>> e5c6588fce6ea8028a869e6d357a996df61ed1e6
