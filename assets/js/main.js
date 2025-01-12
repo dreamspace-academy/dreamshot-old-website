@@ -232,4 +232,49 @@
     .ifEnded(() => {
       console.log('The countdown has ended!');
     });
+
+  // Select all headings and the image
+  const headings = document.querySelectorAll('h2');
+  const image = document.querySelector('.traveling-image');
+
+  // Function to update image position and rotation
+  const updateImagePositionAndRotation = () => {
+    const scrollY = window.scrollY;
+
+    // Loop through each heading
+    headings.forEach((heading) => {
+      const rect = heading.getBoundingClientRect(); // Get heading's position relative to viewport
+      const headingTop = rect.top + scrollY; // Heading's top position in the document
+
+      // Check if the heading is in the viewport
+      if (
+        scrollY >= headingTop - window.innerHeight / 2 &&
+        scrollY < headingTop + window.innerHeight / 2
+      ) {
+        // Move the image near the heading
+        image.style.top = `${headingTop}px`; // Align image vertically
+
+        // Adjust left position based on heading text content
+        if (
+          heading.textContent.trim() === 'EVENT SPEAKERS' ||
+          heading.textContent.trim() === 'AGENDA' ||
+          heading.textContent.trim() === 'SECTIONS' ||
+          heading.textContent.trim() === 'CONTACT'
+        ) {
+          image.style.left = '45%'; // Center the image for this heading
+          image.style.transform = 'translateX(-50%)'; // To center it correctly
+        } else {
+          image.style.left = '10%'; // Default position for other headings
+          image.style.transform = 'translateX(0)'; // Reset the transform
+        }
+
+        // Calculate rotation angle based on scroll position
+        const rotation = ((scrollY - headingTop) / window.innerHeight) * 55; // Rotate image as we scroll
+        image.style.transform = `rotate(${rotation}deg)`; // Apply the rotation
+      }
+    });
+  };
+
+  // Attach scroll event listener
+  window.addEventListener('scroll', updateImagePositionAndRotation);
 })();
