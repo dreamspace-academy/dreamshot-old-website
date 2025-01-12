@@ -1,7 +1,13 @@
+/**
+ * Template Name: iLanding
+ * Template URL: https://bootstrapmade.com/ilanding-bootstrap-landing-page-template/
+ * Updated: Nov 12 2024 with Bootstrap v5.3.3
+ * Author: BootstrapMade.com
+ * License: https://bootstrapmade.com/license/
+ */
 
-
-(function() {
-  "use strict";
+(function () {
+  'use strict';
 
   /**
    * Apply .scrolled class to the body as the page is scrolled down
@@ -9,8 +15,15 @@
   function toggleScrolled() {
     const selectBody = document.querySelector('body');
     const selectHeader = document.querySelector('#header');
-    if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-    window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
+    if (
+      !selectHeader.classList.contains('scroll-up-sticky') &&
+      !selectHeader.classList.contains('sticky-top') &&
+      !selectHeader.classList.contains('fixed-top')
+    )
+      return;
+    window.scrollY > 100
+      ? selectBody.classList.add('scrolled')
+      : selectBody.classList.remove('scrolled');
   }
 
   document.addEventListener('scroll', toggleScrolled);
@@ -26,25 +39,26 @@
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
   }
-  mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+  if (mobileNavToggleBtn) {
+    mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+  }
 
   /**
    * Hide mobile nav on same-page/hash links
    */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
+  document.querySelectorAll('#navmenu a').forEach((navmenu) => {
     navmenu.addEventListener('click', () => {
       if (document.querySelector('.mobile-nav-active')) {
         mobileNavToogle();
       }
     });
-
   });
 
   /**
    * Toggle mobile nav dropdowns
    */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
+  document.querySelectorAll('.navmenu .toggle-dropdown').forEach((navmenu) => {
+    navmenu.addEventListener('click', function (e) {
       e.preventDefault();
       this.parentNode.classList.toggle('active');
       this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
@@ -53,30 +67,22 @@
   });
 
   /**
-   * Preloader
-   */
-  const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
-  }
-
-  /**
    * Scroll top button
    */
   let scrollTop = document.querySelector('.scroll-top');
 
   function toggleScrollTop() {
     if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+      window.scrollY > 100
+        ? scrollTop.classList.add('active')
+        : scrollTop.classList.remove('active');
     }
   }
   scrollTop.addEventListener('click', (e) => {
     e.preventDefault();
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   });
 
@@ -91,7 +97,7 @@
       duration: 600,
       easing: 'ease-in-out',
       once: true,
-      mirror: false
+      mirror: false,
     });
   }
   window.addEventListener('load', aosInit);
@@ -100,19 +106,19 @@
    * Initiate glightbox
    */
   const glightbox = GLightbox({
-    selector: '.glightbox'
+    selector: '.glightbox',
   });
 
   /**
    * Init swiper sliders
    */
   function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+    document.querySelectorAll('.init-swiper').forEach(function (swiperElement) {
       let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
+        swiperElement.querySelector('.swiper-config').innerHTML.trim()
       );
 
-      if (swiperElement.classList.contains("swiper-tab")) {
+      if (swiperElement.classList.contains('swiper-tab')) {
         initSwiperWithCustomPagination(swiperElement, config);
       } else {
         new Swiper(swiperElement, config);
@@ -120,71 +126,28 @@
     });
   }
 
-  window.addEventListener("load", initSwiper);
+  window.addEventListener('load', initSwiper);
+
+  /**
+   * Initiate Pure Counter
+   */
+  new PureCounter();
 
   /**
    * Frequently Asked Questions Toggle
    */
-  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
-    faqItem.addEventListener('click', () => {
-      faqItem.parentNode.classList.toggle('faq-active');
-    });
-  });
-
-  /**
-   * Animate the skills items on reveal
-   */
-  let skillsAnimation = document.querySelectorAll('.skills-animation');
-  skillsAnimation.forEach((item) => {
-    new Waypoint({
-      element: item,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = item.querySelectorAll('.progress .progress-bar');
-        progress.forEach(el => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%';
-        });
-      }
-    });
-  });
-
-  /**
-   * Init isotope layout and filters
-   */
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
-    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
-
-    let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
-        layoutMode: layout,
-        filter: filter,
-        sortBy: sort
+  document
+    .querySelectorAll('.faq-item h3, .faq-item .faq-toggle')
+    .forEach((faqItem) => {
+      faqItem.addEventListener('click', () => {
+        faqItem.parentNode.classList.toggle('faq-active');
       });
     });
-
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        if (typeof aosInit === 'function') {
-          aosInit();
-        }
-      }, false);
-    });
-
-  });
 
   /**
    * Correct scrolling position upon page load for URLs containing hash links.
    */
-  window.addEventListener('load', function(e) {
+  window.addEventListener('load', function (e) {
     if (window.location.hash) {
       if (document.querySelector(window.location.hash)) {
         setTimeout(() => {
@@ -192,7 +155,7 @@
           let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
           window.scrollTo({
             top: section.offsetTop - parseInt(scrollMarginTop),
-            behavior: 'smooth'
+            behavior: 'smooth',
           });
         }, 100);
       }
@@ -205,79 +168,76 @@
   let navmenulinks = document.querySelectorAll('.navmenu a');
 
   function navmenuScrollspy() {
-    navmenulinks.forEach(navmenulink => {
+    navmenulinks.forEach((navmenulink) => {
       if (!navmenulink.hash) return;
       let section = document.querySelector(navmenulink.hash);
       if (!section) return;
       let position = window.scrollY + 200;
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
+      if (
+        position >= section.offsetTop &&
+        position <= section.offsetTop + section.offsetHeight
+      ) {
+        document
+          .querySelectorAll('.navmenu a.active')
+          .forEach((link) => link.classList.remove('active'));
         navmenulink.classList.add('active');
       } else {
         navmenulink.classList.remove('active');
       }
-    })
+    });
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  var typing = new Typed('.text', {
+    strings: ['', 'Creativity', 'Innovation', 'Entrepreneurship'],
+    typeSpeed: 100,
+    backSpeed: 40,
+    loop: true,
+  });
+
+  // Set the date we're counting down to
+  var countDownDate = new Date('Feb 20, 2025 8:00:00').getTime();
+
+  // Update the count down every 1 second
+  var x = setInterval(function () {
+    // Get today's date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the result in the element with id="demo"
+    document.getElementById('countdown').innerHTML =
+      days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ';
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById('countdown').innerHTML = 'COMING SOON';
+    }
+  }, 1000);
+
+  // Create a flipdown instance
+  // Unix timestamp (in seconds) to count down to
+  var twoDaysFromNow = countDownDate / 1000 + 86400 * 2 + 1;
+
+  // Set up FlipDown
+  var flipdown = new FlipDown(twoDaysFromNow)
+
+    // Start the countdown
+    .start()
+
+    // Do something when the countdown ends
+    .ifEnded(() => {
+      console.log('The countdown has ended!');
+    });
 })();
-
-function animateCounters() {
-  const counters = document.querySelectorAll('.counter');
-  counters.forEach(counter => {
-    const target = +counter.innerText; // Convert target value to a number
-    counter.innerText = '0'; // Start from 0
-
-    const updateCounter = () => {
-      const current = +counter.innerText; // Current value
-      const increment = target / 100; // Adjust speed by changing divisor
-
-      if (current < target) {
-        counter.innerText = `${Math.ceil(current + increment)}`;
-        setTimeout(updateCounter, 20); // Adjust speed by changing delay
-      } else {
-        counter.innerText = target; // Ensure it stops exactly at the target
-      }
-    };
-
-    updateCounter();
-  });
-}
-
-// Call the animation function after the page loads
-window.onload = animateCounters;
-
-
-document.addEventListener('DOMContentLoaded', animateCounters);
-
-// Wait for the document to load
-document.addEventListener('DOMContentLoaded', () => {
-  // Get all the district images
-  const districts = document.querySelectorAll('.district');
-  
-  // Initialize the intersection observer to detect when the user scrolls into view
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      // When the district image comes into the viewport
-      if (entry.isIntersecting) {
-        // Fade in the image
-        entry.target.style.opacity = 1;
-        observer.unobserve(entry.target); // Stop observing after it's visible
-      }
-    });
-  }, { threshold: 0.5 });
-
-  // Observe each district image
-  districts.forEach(district => {
-    observer.observe(district);
-  });
-
-  // Function to trigger highlight animation for highlighted districts after delay
-  setTimeout(() => {
-    const highlightedDistricts = document.querySelectorAll('.highlighted');
-    highlightedDistricts.forEach(district => {
-      district.style.opacity = 1;  // Start displaying highlighted districts
-    });
-  }, 5000); // 5 seconds delay to start highlighting
-});
