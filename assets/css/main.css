@@ -2596,3 +2596,29 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 40%);
   margin: 0;
 }
+
+/* Event section read more button */
+.event-item .btn-readmore,
+.event-item .btn-readmore:focus {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  font-size: 14px;
+  padding: 8px 20px;
+  margin: 0 0 0 30px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.event-item .btn-readmore:hover,
+.event-item .btn-readmore:focus:hover {
+  color: var(--contrast-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+}
+
+@media (max-width: 1200px) {
+  .event-item .btn-readmore {
+    margin: 0 10px 0 0;
+    padding: 6px 15px;
+  }
+}
+
