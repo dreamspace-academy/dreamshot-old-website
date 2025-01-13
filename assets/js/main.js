@@ -257,8 +257,9 @@
         // Adjust left position based on heading text content
         if (
           heading.textContent.trim() === 'EVENT SPEAKERS' ||
-          heading.textContent.trim() === 'AGENDA' ||
+          heading.textContent.trim() === 'EVENT PLAN' ||
           heading.textContent.trim() === 'SECTIONS' ||
+          heading.textContent.trim() === 'ORGANISERS' ||
           heading.textContent.trim() === 'CONTACT'
         ) {
           image.style.left = '45%'; // Center the image for this heading
