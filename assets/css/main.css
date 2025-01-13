@@ -662,16 +662,16 @@ section,
   position: relative;
   padding-top: 160px;
   background: url('../img/hero-bg.svg');
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
+  background-position: center;
+  background-repeat: no-repeat; 
   background-size: cover;
   padding-bottom: 0;
-  /* background: linear-gradient(
+  background: linear-gradient(
     135deg,
     color-mix(in srgb, var(--accent-color), transparent 5%) 50%,
     color-mix(in srgb, var(--accent-color), transparent 8%) 25%,
     transparent 50%
-  ); */
+  );
 }
 
 .hero::before {
