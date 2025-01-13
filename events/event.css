@@ -658,318 +658,106 @@
   /*--------------------------------------------------------------
   # Hero Section
   --------------------------------------------------------------*/
+  /* Hero Section */
+.hero {
+  position: relative;
+  padding-top: 160px;
+  background: url(/events/img-events/banner.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 92vh;
+  padding-bottom: 0;
+}
+
+@media (max-width: 992px) { /* Tablet size */
   .hero {
-    position: relative;
-    padding-top: 160px;
-    background: url(/events/img-events/banner.jpg);
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover;
-    padding-bottom: 0;
-    
-    /* background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--accent-color), transparent 5%) 50%,
-      color-mix(in srgb, var(--accent-color), transparent 8%) 25%,
-      transparent 50%
-    ); */
+      height: 55vh; 
+      padding-top: 120px; 
   }
-  
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
+}
+
+@media (max-width: 768px) { /* iPad Pro portrait size */
+  .hero {
+      height: 55vh; 
+  }
+}
+
+@media (max-width: 1366px) and (min-width: 1024px) { /* iPad Pro landscape size */
+  .hero {
+      height: 55vh; 
+  }
+}
+
+@media (max-width: 576px) { /* Mobile size */
+  .hero {
+      height: 60vh; 
+      padding-top: 100px; 
+  }
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
       circle at 90% 10%,
       color-mix(in srgb, var(--accent-color), transparent 92%),
       transparent 40%
-    );
-    pointer-events: none;
-  }
-  
+  );
+  pointer-events: none;
+}
+
+.hero .hero-content {
+  position: relative;
+  z-index: 1;
+  margin-top: 100px;
+}
+
+.hero .hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.centered-heading {
+  text-align: center;
+}
+
+.hero .hero-content h1 .accent-text {
+  color: var(--accent-color);
+}
+
+@media (max-width: 992px) {
   .hero .hero-content {
-    position: relative;
-    z-index: 1;
-  }
-  
-  .hero .hero-content h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-  }
-  
-  .hero .hero-content h1 .accent-text {
-    color: var(--accent-color);
-  }
-  
-  @media (max-width: 992px) {
-    .hero .hero-content {
       text-align: center;
       margin-bottom: 3rem;
-    }
-  
-    .hero .hero-content h1 {
+  }
+
+  .hero .hero-content h1 {
       font-size: 2.5rem;
-    }
-  
-    .hero .hero-content .hero-buttons {
+  }
+
+  .hero .hero-content .hero-buttons {
       justify-content: center;
-    }
   }
-  
-  @media (max-width: 575px) {
-    .hero .hero-content h1 {
+}
+
+@media (max-width: 575px) {
+  .hero .hero-content h1 {
       font-size: 2rem;
-    }
   }
-  
-  /* Flip Count Down */
-  
-  .flipdown.flipdown__theme-dark .rotor,
-  .flipdown.flipdown__theme-dark .rotor-top,
-  .flipdown.flipdown__theme-dark .rotor-leaf-front {
-    color: #fff;
-    background-color: #2e065b;
+
+  .hero .hero-content {
+      margin-top: 80px;
   }
-  
-  /* Hero ABout */
-  
-  #hero-about {
-    background: transparent;
-    background-size: cover;
-    overflow: hidden;
-    position: relative;
-    color: #fff;
-    padding: 60px 0 40px 0;
-    z-index: 0;
-  }
-  
-  #hero-about:before {
-    content: '';
-    background: rgba(13, 20, 41, 0.8);
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-  }
-  
-  #hero-about h2 {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #fff;
-  }
-  
-  #hero-about h3 {
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    color: #fff;
-  }
-  
-  #hero-about p {
-    font-size: 14px;
-    margin-bottom: 20px;
-    color: #fff;
-  }
-  
-  .hero .company-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background-color: color-mix(in srgb, var(--accent-color), transparent 92%);
-    border-radius: 50px;
-    color: var(--accent-color);
-    font-weight: 500;
-  }
-  
-  .hero .company-badge i {
-    font-size: 1.25rem;
-  }
-  
-  .hero .btn-primary {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-    color: var(--contrast-color);
-    padding: 0.75rem 2.5rem;
-    border-radius: 50px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
-  
-  .hero .btn-primary:hover {
-    background-color: color-mix(in srgb, var(--accent-color), black 20%);
-    border-color: color-mix(in srgb, var(--accent-color), black 20%);
-  }
-  
-  .hero .btn-link {
-    color: var(--heading-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
-  
-  .hero .btn-link:hover {
-    color: var(--accent-color);
-  }
-  
-  .hero .btn-link i {
-    font-size: 1.5rem;
-    vertical-align: middle;
-  }
-  
-  .hero .hero-image {
-    position: relative;
-    text-align: center;
-    z-index: 1;
-  }
-  
-  .hero .hero-image img {
-    max-width: 90%;
-    height: auto;
-    animation: float-badge 3s ease-in-out infinite;
-    will-change: transform;
-  }
-  
-  .hero .customers-badge {
-    position: absolute;
-    bottom: 10px;
-    right: 30px;
-    background-color: transparent;
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    animation: float-badge 3s ease-in-out infinite;
-    will-change: transform;
-  }
-  
-  .hero .customers-badge .customer-avatars {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
-  }
-  
-  .hero .customers-badge .avatar {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border: 2px solid var(--surface-color);
-    margin-left: -8px;
-  }
-  
-  .hero .customers-badge .avatar:first-child {
-    margin-left: 0;
-  }
-  
-  .hero .customers-badge .avatar.more {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 600;
-  }
-  
-  .hero .customers-badge p {
-    font-size: 0.875rem;
-    color: color-mix(in srgb, var(--default-color), transparent 40%);
-  }
-  
-  @media (max-width: 992px) {
-    .hero .customers-badge {
-      position: static;
-      margin: 1rem auto;
-      max-width: 250px;
-    }
-  }
-  
-  .hero .stats-row {
-    position: relative;
-    z-index: 1;
-    margin-top: 5rem;
-    background-color: var(--surface-color);
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    padding-bottom: 2rem;
-  }
-  
-  .hero .stat-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 2rem;
-  }
-  
-  .hero .stat-item .stat-icon {
-    flex-shrink: 0;
-    width: 64px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: color-mix(in srgb, var(--accent-color), transparent 92%);
-    border-radius: 50px;
-    transition: 0.3s;
-  }
-  
-  .hero .stat-item .stat-icon i {
-    font-size: 1.5rem;
-    color: var(--accent-color);
-  }
-  
-  .hero .stat-item:hover .stat-icon {
-    background-color: var(--accent-color);
-  }
-  
-  .hero .stat-item:hover .stat-icon i {
-    color: var(--contrast-color);
-  }
-  
-  .hero .stat-item .stat-content {
-    flex-grow: 1;
-  }
-  
-  .hero .stat-item .stat-content h4 {
-    font-size: 1.25rem;
-    margin-bottom: 0.25rem;
-    font-weight: 600;
-  }
-  
-  .hero .stat-item .stat-content p {
-    font-size: 0.875rem;
-    color: color-mix(in srgb, var(--default-color), transparent 40%);
-    margin: 0;
-  }
-  
-  @media (max-width: 575px) {
-    .hero .stat-item {
-      padding: 1.5rem;
-    }
-  }
-  
-  @keyframes float-badge {
-    0% {
-      transform: translateY(0);
-    }
-  
-    50% {
-      transform: translateY(-10px);
-    }
-  
-    100% {
-      transform: translateY(0);
-    }
-  }
-  
+}
+
+
   /*--------------------------------------------------------------
   # About Section
   --------------------------------------------------------------*/
